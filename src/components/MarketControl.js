@@ -8,6 +8,7 @@ class MarketControl extends React.Component {
     this.state = {
       formVisibleOnPage: false,
     };
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick = () => {
@@ -24,11 +25,11 @@ class MarketControl extends React.Component {
       buttonText = "Return to Market List";
     } else {
       currentlyVisibleState = <AvailableProduce />;
-      buttonText = "What's in season?";
+      buttonText = "Find us today";
     }
     return (
       <React.Fragment>
-        <h1>Market Control</h1>
+        <h1>Welcome to our Market Information</h1>
         <button onClick={this.handleClick}>{buttonText}</button>
         {currentlyVisibleState}
       </React.Fragment>

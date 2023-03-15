@@ -272,6 +272,7 @@ const availableProduce = [
 function AvailableProduce() {
   return (
     <React.Fragment>
+      <hr />
       <h3>{availableProduce[0].month}</h3>
       {availableProduce[0].selection.map((produce) => (
         <ul>
@@ -283,3 +284,26 @@ function AvailableProduce() {
 }
 
 export default AvailableProduce;
+
+// function SeasonalProduce() {
+//   return (
+//     <div>
+//       {availableProduce.map((month) => {
+//         return (
+//           <div>
+//             <h3>{month.month}</h3>
+//             {month.selection.map((selection) => {
+//               return (
+//                 <div>
+//                   <p>{selection}</p>
+//                 </div>
+//               );
+//             })}
+//           </div>
+//         );
+//       })}
+//     </div>
+//   );
+// }
+
+// export default SeasonalProduce;

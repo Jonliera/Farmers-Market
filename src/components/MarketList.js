@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import MarketSchedule from "./MarketSchedule";
 
 const marketList = [
   {
@@ -40,17 +41,40 @@ const marketList = [
 ];
 
 function MarketList() {
+  const [theDay, setDate] = useState(null);
+
+  const filterDay = (day) => {
+    setDate(day);
+  };
+
+  const filterMarketList = theDay
+    ? marketList.filter((market) => market.day === theDay)
+    : marketList;
+
   return (
     <React.Fragment>
       <hr />
-      {/* {marketList[0].map((market) => ( */}
+
       <div>
-        <p>day : {marketList[0].day}</p>
-        <p>location : {marketList[0].location}</p>
-        <p>hours : {marketList[0].hours}</p>
-        <p>booth : {marketList[0].booth}</p>
+        <button onClick={() => filterDay(null)}>Show All</button>
+        <button onClick={() => filterDay("Sunday")}>Sunday</button>
+        <button onClick={() => filterDay("Monday")}>Monday</button>
+        <button onClick={() => filterDay("Tuesday")}>Tuesday</button>
+        <button onClick={() => filterDay("Wednesday")}>Wednesday</button>
+        <button onClick={() => filterDay("Thursday")}>Thursday</button>
+        <button onClick={() => filterDay("Friday")}>Friday</button>
+        <button onClick={() => filterDay("Saturday")}>Saturday</button>
       </div>
-      {/* ))} */}
+
+      {filterMarketList.map((market, index) => (
+        <MarketSchedule
+          day={market.day}
+          location={market.location}
+          hours={market.hours}
+          booth={market.booth}
+          key={index}
+        />
+      ))}
     </React.Fragment>
   );
 }
