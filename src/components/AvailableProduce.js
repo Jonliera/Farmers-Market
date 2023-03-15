@@ -269,24 +269,17 @@ const availableProduce = [
   },
 ];
 
-function MonthlyProduce() {
+function AvailableProduce() {
   return (
-    <div>
-      <h1>Monthly Produce</h1>
-      <div>
-        {months.map((month, index) => (
-          <div key={index}>
-            <h2>{month.month}</h2>
-            <ul>
-              {month.selection.map((item, index) => (
-                <li key={index}>{item}</li>
-              ))}
-            </ul>
-          </div>
-        ))}
-      </div>
-    </div>
+    <React.Fragment>
+      <h3>{availableProduce[0].month}</h3>
+      {availableProduce[0].selection.map((produce) => (
+        <ul>
+          <li>{produce}</li>
+        </ul>
+      ))}
+    </React.Fragment>
   );
 }
 
-export default MonthlyProduce;
+export default AvailableProduce;

@@ -1,5 +1,4 @@
 import React from "react";
-import Market from "./Market";
 
 const marketList = [
   {
@@ -44,15 +43,14 @@ function MarketList() {
   return (
     <React.Fragment>
       <hr />
-      {marketList.map((market, index) => (
-        <Market
-          day={market.day}
-          location={market.location}
-          hours={market.hours}
-          booth={market.booth}
-          key={index}
-        />
-      ))}
+      {/* {marketList[0].map((market) => ( */}
+      <div>
+        <p>day : {marketList[0].day}</p>
+        <p>location : {marketList[0].location}</p>
+        <p>hours : {marketList[0].hours}</p>
+        <p>booth : {marketList[0].booth}</p>
+      </div>
+      {/* ))} */}
     </React.Fragment>
   );
 }
